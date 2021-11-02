@@ -9,31 +9,6 @@
   </head>
   <body>
     <div id="app">
-      <div class="nav-bar"></div>
-
-      <div class="product-display">
-        <div class="product-container">
-          <div class="product-image">
-            <img v-bind:src="image">
-          </div>
-          <div class="product-info">
-            <h1>{{ product }}</h1>
-            <!-- solution -->
-            <a :href="url">Made by Vue Mastery</a>
-           <!-- solution -->
-          </div>
-		  <span v-bind:title="message">
-			Hover your mouse over me for a few seconds to see my dynamically-bound
-			title! 
-		  </span>
-		  <p>{{ message2 }}</p>
-		  <button v-on:click="reverseMessage">Перевернуть сообщение</button>
-		  <div id="two-way-binding">
-			<p>{{ message3 }}</p>
-			<input v-model="message3" />
-		  </div>
-        </div>
-		
 		<div class="container">
 		  <div class="row justify-content-around">
 			<div class="col-md-6">
@@ -81,23 +56,11 @@
       const app = Vue.createApp({
           data() {
               return {
-                  product: 'Socks',
-                  image: './assets/images/z_69689b36.jpg',
-                  url: 'https://www.vuemastery.com/',
-				  message: 'Страница загружена ' + new Date().toLocaleString(),
-				  message2: 'Ароза упала на лапу Азора.',
-				  message3: 'Привет, Vue!',
 				  str: 'Привет',
 				  code: ''
               }
           },
 		  methods: {
-			reverseMessage() {
-			  this.message2 = this.message2
-				.split('')
-				.reverse()
-				.join('')
-			},
 			func () {
 				for (var i = 0; i < this.str.length; i++) {
 					var c = this.str[i];
@@ -109,7 +72,6 @@
 		  },
 		  
       })
-      console.log(app)
       const mountedApp = app.mount('#app')
     </script>
   </body>
